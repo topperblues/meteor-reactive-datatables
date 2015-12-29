@@ -15,7 +15,10 @@ ReactiveDatatable = function(options) {
 		stateLoadParams: function(settings, data) {
 			// Make it easy to change to the stored page on .update()
 			self.page = data.start / data.length;
-		}
+		},
+		"processing": true,
+		"serverSide": true,
+		"ajax": ServerSideProcessing
 	});
 };
 
@@ -23,10 +26,19 @@ ReactiveDatatable.prototype.update = function(data) {
 	if (!data) return;
 	var self = this;
 
-	self.datatable
-		.clear()
-		.rows.add(data)
-		.draw(false)
-		.page(self.page || 0) // XXX: Can we avoid drawing twice?
-		.draw(false);		  // I couldn't get the page drawing to work otherwise
+		/*
+			self.datatable
+				.clear()
+				.rows.add(data.tableData())
+				.draw(false)
+				.page(self.page || 0) // XXX: Can we avoid drawing twice?
+				.draw(false);		  // I couldn't get the page drawing to work otherwise
+		*/
+
+	
+
 };
+
+ServerSideProcessing = function (params) {
+	console.dir(params);
+}
