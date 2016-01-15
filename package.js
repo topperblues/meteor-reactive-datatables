@@ -1,8 +1,8 @@
 Package.describe({
   name: 'topperblues:reactive-datatables',
-  version: '0.0.1',
+  version: '0.1.2',
   // Brief, one-line summary of the package.
-  summary: "Fast and reactive jQuery DataTables using standard Cursors / DataTables API. Supports Bootstrap 3.",
+  summary: "Fork of ephemer:reactive-datatables with server side search and pagination, using publish or method.",
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/topperblues/meteor-reactive-datatables.git',
   // By default, Meteor will default to using README.md for documentation.
@@ -19,5 +19,6 @@ Package.onUse(function(api) {
     'reactive-datatable-template.html',
     'reactive-datatable-template.js',
   ], 'client');
+  api.addFiles('reactive-datatables-server.js', 'server');
 });
 
