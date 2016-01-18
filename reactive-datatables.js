@@ -64,7 +64,14 @@ RDServerSideProcessing = function (dataFunction, options) {
                 });
             }
 
-			Meteor.call(dataFunction(), find, regex.source, pagination, function (error, collectionData) {
+			var methodName = dataFunction();
+			var params = {};
+			if(typeof methodName!="string"){
+				params = methodName.params;
+				methodName = methodName.methodName;
+			}
+
+			Meteor.call(methodName, find, regex.source, pagination, params, function (error, collectionData) {
 
 				var json = {
 					"draw": parseInt(request.draw),
