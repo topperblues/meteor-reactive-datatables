@@ -69,6 +69,15 @@ In your template:
                             };
             }
         });
+        
+*If you need to send param to the method*
+    ...
+    reactiveDataFunction: function () {
+                    return function () {
+                                   return {methodName:"Meteor_Method_Name",params:{...}};
+                               };
+                }
+    ...
 
 *Server side Meteor.method:*
 
@@ -82,4 +91,9 @@ In your template:
                       }
             }
             });
+            
+*If you need to get param in the method*
+    ...
+    Meteor_Method_Name: function (search, regex, pagination, params) {...}
+    ...
 

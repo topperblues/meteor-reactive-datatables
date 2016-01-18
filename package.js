@@ -1,6 +1,6 @@
 Package.describe({
   name: 'topperblues:reactive-datatables',
-  version: '0.1.2',
+  version: '0.1.4',
   // Brief, one-line summary of the package.
   summary: "Fork of ephemer:reactive-datatables with server side search and pagination, using publish or method.",
   // URL to the Git repository containing the source code for this package.
